@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MindEase is an educational mental wellness support chatbot prototype.">
+  <title>MindEase | Your Space to Unwind</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <header class="navbar">
+    <a class="brand" href="#home" aria-label="MindEase home">
+      <span class="brand-icon">✦</span> MindEase
+    </a>
+    <nav>
+      <a href="#mood">Mood check-in</a>
+      <a href="#chat">Chat support</a>
+      <a href="#tools">Wellness tools</a>
+      <a href="#journal">Journal</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <span class="eyebrow">YOUR WELLNESS, YOUR PACE</span>
+        <h1>A little space to<br><span>feel like yourself.</span></h1>
+        <p>
+          Take a pause, check in with your feelings, and explore small
+          steps toward a calmer day. No pressure. Just a moment for you.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#mood">Check in with yourself</a>
+          <a class="button secondary" href="#tools">Explore wellness tools</a>
+        </div>
+        <p class="hero-note">A gentle reminder: you don't have to figure everything out today.</p>
+      </div>
+
+      <div class="hero-art" aria-label="Decorative wellness illustration">
+        <div class="sun"></div>
+        <div class="art-circle circle-one"></div>
+        <div class="art-circle circle-two"></div>
+        <div class="plant">❋</div>
+        <div class="art-card">
+          <span class="mini-star">✦</span>
+          <p>Pause.</p>
+          <p>Breathe.</p>
+          <p>Begin again.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section mood-section" id="mood">
+      <div class="section-heading">
+        <span class="eyebrow">01 / MOOD CHECK-IN</span>
+        <h2>How are you feeling today?</h2>
+        <p>There is no right or wrong answer. Choose what feels closest.</p>
+      </div>
+
+      <div class="mood-grid" role="group" aria-label="Choose your mood">
+        <button class="mood-option" data-mood="Happy" aria-pressed="false">
+          <span>☀️</span><strong>Happy</strong>
+        </button>
+        <button class="mood-option" data-mood="Calm" aria-pressed="false">
+          <span>🌿</span><strong>Calm</strong>
+        </button>
+        <button class="mood-option" data-mood="Okay" aria-pressed="false">
+          <span>☁️</span><strong>Okay</strong>
+        </button>
+        <button class="mood-option" data-mood="Anxious" aria-pressed="false">
+          <span>🌧️</span><strong>Anxious</strong>
+        </button>
+        <button class="mood-option" data-mood="Sad" aria-pressed="false">
+          <span>🌙</span><strong>Sad</strong>
+        </button>
+        <button class="mood-option" data-mood="Overwhelmed" aria-pressed="false">
+          <span>🌊</span><strong>Overwhelmed</strong>
+        </button>
+      </div>
+
+      <div class="mood-result panel" id="moodResult" aria-live="polite">
+        Select a mood to receive a gentle suggestion.
+      </div>
+    </section>
+
+    <section class="section chat-section" id="chat">
+      <div class="section-heading">
+        <span class="eyebrow">02 / SUPPORTIVE CHAT</span>
+        <h2>A conversation without pressure.</h2>
+        <p>Share what's on your mind or choose a prompt to get started.</p>
+      </div>
+
+      <div class="chat-layout">
+        <div class="chat-panel">
+          <div class="chat-header">
+            <div class="bot-avatar">✦</div>
+            <div>
+              <strong>MindEase Companion</strong>
+              <p>Supportive wellness prototype</p>
+            </div>
+            <span class="status-dot" aria-label="Available"></span>
+          </div>
+
+          <div class="chat-messages" id="chatMessages" aria-live="polite">
+            <div class="message bot-message">
+              Hi there! I'm here to help you explore your feelings.
+              What has been on your mind today?
+            </div>
+          </div>
+
+          <div class="prompt-list">
+            <button class="prompt-button" data-prompt="I feel stressed">I'm stressed</button>
+            <button class="prompt-button" data-prompt="I feel lonely">I feel lonely</button>
+            <button class="prompt-button" data-prompt="I need motivation">I need motivation</button>
+          </div>
+
+          <form class="chat-form" id="chatForm">
+            <label class="sr-only" for="chatInput">Your message</label>
+            <input
+              id="chatInput"
+              type="text"
+              maxlength="500"
+              placeholder="Type what you're feeling..."
+              autocomplete="off"
+              required
+            >
+            <button class="button primary send-button" type="submit">Send ↗</button>
+          </form>
+          <p class="chat-disclaimer">
+            This demo uses predefined responses. It is not a therapist or emergency service.
+          </p>
+        </div>
+
+        <aside class="chat-aside">
+          <div class="aside-icon">♡</div>
+          <h3>You can take things one step at a time.</h3>
+          <p>You don't need perfect words to describe how you feel. Start wherever you are.</p>
+          <div class="small-divider"></div>
+          <strong>Try asking yourself:</strong>
+          <p>What is one small thing that could make the next ten minutes easier?</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section tools-section" id="tools">
+      <div class="section-heading">
+        <span class="eyebrow">03 / WELLNESS TOOLKIT</span>
+        <h2>Small pauses can help.</h2>
+        <p>Choose a simple activity and give yourself a few minutes.</p>
+      </div>
+
+      <div class="tools-grid">
+        <article class="tool-card">
+          <div class="tool-icon lavender">◉</div>
+          <h3>Breathing space</h3>
+          <p>Follow a gentle breathing rhythm to create a pause in your day.</p>
+          <div class="breathing-circle" id="breathingCircle">
+            <span id="breathingText">Ready?</span>
+          </div>
+          <p class="tool-status" id="breathingStatus" aria-live="polite">
+            A short breathing exercise.
+          </p>
+          <button class="button secondary full-width" id="breathingButton">
+            Start breathing
+          </button>
+        </article>
+
+        <article class="tool-card">
+          <div class="tool-icon mint">✿</div>
+          <h3>5–4–3–2–1 grounding</h3>
+          <p>Notice your surroundings one step at a time.</p>
+          <ol class="grounding-list">
+            <li>5 things you can see</li>
+            <li>4 things you can feel</li>
+            <li>3 things you can hear</li>
+            <li>2 things you can smell</li>
+            <li>1 thing you can taste</li>
+          </ol>
+          <button class="button secondary full-width" id="groundingButton">
+            Begin grounding
+          </button>
+          <p id="groundingMessage" class="tool-status" aria-live="polite"></p>
+        </article>
+
+        <article class="tool-card">
+          <div class="tool-icon peach">✎</div>
+          <h3>A moment of gratitude</h3>
+          <p>Think of one small thing that felt good, comforting, or meaningful today.</p>
+          <label for="gratitudeInput" class="field-label">One thing I'm grateful for...</label>
+          <textarea id="gratitudeInput" rows="3" maxlength="300"
+            placeholder="A warm cup of tea, a kind message..."></textarea>
+          <button class="button secondary full-width" id="gratitudeButton">
+            Save to journal
+          </button>
+          <p id="gratitudeMessage" class="tool-status" aria-live="polite"></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section journal-section" id="journal">
+      <div class="section-heading">
+        <span class="eyebrow">04 / PRIVATE JOURNAL</span>
+        <h2>Make room for your thoughts.</h2>
+        <p>Write a few lines about your day. Your entries stay in this browser on this device.</p>
+      </div>
+
+      <div class="journal-layout">
+        <form class="journal-form panel" id="journalForm">
+          <label for="journalMood">Today's mood</label>
+          <select id="journalMood">
+            <option>Not selected</option>
+            <option>Happy</option>
+            <option>Calm</option>
+            <option>Okay</option>
+            <option>Anxious</option>
+            <option>Sad</option>
+            <option>Overwhelmed</option>
+          </select>
+
+          <label for="journalEntry">What's on your mind?</label>
+          <textarea id="journalEntry" rows="6" maxlength="2000"
+            placeholder="Write freely. There is no perfect way to begin."></textarea>
+
+          <button class="button primary" type="submit">Save journal entry</button>
+          <p id="journalMessage" class="tool-status" aria-live="polite"></p>
+        </form>
+
+        <div class="journal-history">
+          <div class="history-heading">
+            <h3>Recent entries</h3>
+            <button id="clearJournalButton" class="text-button" type="button">
+              Clear entries
+            </button>
+          </div>
+          <div id="journalEntries">
+            <p class="empty-state">Your saved entries will appear here.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="support-section">
+      <div>
+        <span class="eyebrow">A NOTE ON GETTING SUPPORT</span>
+        <h2>You deserve support beyond a screen.</h2>
+        <p>
+          If your feelings are persistent, difficult to manage, or affecting daily life,
+          consider talking to someone you trust or a qualified mental health professional.
+        </p>
+      </div>
+      <div class="support-card">
+        <h3>Need urgent help in India?</h3>
+        <p>If you are in immediate danger, call India's emergency number.</p>
+        <a class="button primary" href="tel:112">Call 112</a>
+        <p class="support-small">
+          For mental health support, you can also check the Government of India's
+          Tele-MANAS service at
+          <a href="https://telemanas.mohfw.gov.in/" target="_blank" rel="noopener noreferrer">
+            telemanas.mohfw.gov.in
+          </a>.
+          Check the official site for current contact details and availability.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="brand" href="#home"><span class="brand-icon">✦</span> MindEase</a>
+    <p>Designed as an educational mental wellness project.</p>
+    <p class="footer-disclaimer">
+      MindEase is not a medical device, diagnostic tool, or substitute for professional care.
+    </p>
+    <p>© <span id="currentYear"></span> MindEase Project</p>
+  </footer>
+</body>
+</html>
